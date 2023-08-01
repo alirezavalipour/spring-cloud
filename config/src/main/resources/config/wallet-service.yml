@@ -11,24 +11,12 @@ logging:
     console: "%d{yyyy-MM-dd HH:mm:ss} [%X{traceId:-},%X{spanId:-}] ${LOG_LEVEL_PATTERN:-%5p} %m%n"
 
 springdoc:
-  packagesToScan: ir.alirezavalipour.clouddemo.order
+  packagesToScan: ir.alirezavalipour.clouddemo.wallet
 
 spring:
   output:
     ansi:
       enabled: always
-  datasource:
-    url: jdbc:postgresql://localhost:5432/clouddemo_order
-    username: postgres
-    password: changeme
-  jpa:
-    hibernate:
-      ddl-auto: update
-    show-sql: false
-    properties:
-      hibernate:
-        formate_sql: true
-        dialect: org.hibernate.dialect.PostgreSQLDialect
 
 management:
   tracing:

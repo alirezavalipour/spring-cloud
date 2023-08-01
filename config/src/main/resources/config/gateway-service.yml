@@ -21,15 +21,15 @@ spring:
           enabled: true
       routes:
         - id: user-service
-          serviceId: user-service
+          uri: http://user-service
           predicates:
             - Path=/user/**
           filters:
             - RewritePath=/user/(?<path>.*), /$\{path}
-        - id: order-service
-          uri: lb://department-service
+        - id: order-services
+          uri: http://order-service
           predicates:
-            - Path=/department/**
+            - Path=/order/**
           filters:
             - RewritePath=/department/(?<path>.*), /$\{path}
         - id: openapi
