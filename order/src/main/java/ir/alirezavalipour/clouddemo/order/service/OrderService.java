@@ -10,13 +10,13 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
 public class OrderService implements OrderServiceInterface {
 
     private final OrderRepository orderRepository;
+
 
     public Order createOrder(OrderRequestDTO requestDTO) {
         Order order = this.dtoToEntity(requestDTO);
@@ -38,7 +38,7 @@ public class OrderService implements OrderServiceInterface {
     @Transactional(readOnly = true)
     public List<OrderResponseDTO> getAll() {
         List<Order> orders = orderRepository.findAllByUserId(1L);
-        return orders.stream().map(this::entityToDTO).collect(Collectors.toList());
+        return orders.stream().map(this::entityToDTO).toList();
     }
 
     private OrderResponseDTO entityToDTO(Order order) {

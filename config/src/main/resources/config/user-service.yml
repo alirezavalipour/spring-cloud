@@ -12,6 +12,8 @@ logging:
 
 springdoc:
   packagesToScan: ir.alirezavalipour.clouddemo.user
+  swagger-ui:
+    path: /swagger-ui-custom.html
 
 spring:
   output:
