@@ -1,0 +1,35 @@
+server:
+  port: 0
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8061/eureka/
+
+logging:
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} [%X{traceId:-},%X{spanId:-}] ${LOG_LEVEL_PATTERN:-%5p} %m%n"
+
+springdoc:
+  packagesToScan: ir.alirezavalipour.clouddemo.oauth
+
+spring:
+  output:
+    ansi:
+      enabled: always
+  security:
+    oauth2:
+     client:
+      registration:
+        keycloak:
+          client-id: login-app
+          authorization-grant-type: authorization_code
+          scope: openid
+
+management:
+  tracing:
+    sampling:
+      probability: 1.0
+  zipkin:
+    tracing:
+      endpoint: http://localhost:9411/api/v2/spans

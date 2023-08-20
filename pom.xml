@@ -73,6 +73,7 @@
         <module>order</module>
         <module>gateway</module>
         <module>wallet</module>
+        <module>oauth</module>
     </modules>
 
     <dependencyManagement>
